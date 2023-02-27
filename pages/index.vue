@@ -16,7 +16,13 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useTaskStore } from "../stores/main";
+const taskStore = useTaskStore();
+onMounted(() => {
+  console.log(taskStore);
+});
+</script>
 
 <style scoped>
 h2 {
