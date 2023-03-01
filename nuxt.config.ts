@@ -2,4 +2,10 @@
 export default defineNuxtConfig({
   css: ["@/assets/css/tailwind.css"],
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
+  components: [
+    {
+      path: "~/components",
+      extensions: [".vue"],
+    },
+  ],
 });
