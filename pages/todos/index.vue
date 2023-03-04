@@ -1,15 +1,29 @@
 <template>
   <div>
-    <form action="/action_page.php">
-      <label for="fname">First name:</label><br />
-      <input type="text" id="fname" name="fname" value="John" /><br />
-      <label for="lname">Last name:</label><br />
-      <input type="text" id="lname" name="lname" value="Doe" /><br /><br />
-      <button>Add</button>
-    </form>
+    <!-- <form submit|prevent>
+      <label for="urgency">Urgency</label><br />
+      <input type="text" id="fname" name="urgency" value="urgent" /><br />
+      <label for="todo">Todo</label><br />
+      <input
+        type="text"
+        id="ur"
+        name="todo"
+        value="Do the laundry"
+      /><br /><br />
+      <button
+        @click="taskStore.addTodo({ urgency: 'urgent', todo: 'feed the cat' })"
+      >
+        Add
+      </button>
+    </form> -->
+    <button
+      @click="taskStore.addTodo({ urgency: 'urgent', todo: 'feed the dog' })"
+    >
+      Add
+    </button>
   </div>
   <div class="task-list">
-    <div v-for="todo in todos">
+    <div v-for="todo in taskStore.tasks">
       <ItemTest :task="todo"></ItemTest>
     </div>
   </div>
@@ -17,19 +31,14 @@
 
 <script setup lang="ts">
 import { useTaskStore } from "../../stores/main";
+import { storeToRefs } from "pinia";
+
 definePageMeta({
   layout: "todos",
 });
-
 const taskStore = useTaskStore();
 
-const todos = computed(() => {
-  return taskStore.tasks;
-});
-
-onMounted(() => {
-  taskStore.fetchTodos();
-});
+taskStore.fetchTodos();
 </script>
 
 <style scoped></style>

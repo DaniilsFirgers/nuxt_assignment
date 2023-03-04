@@ -9,6 +9,8 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.4.1",
+    "mongoose": "^7.0.0",
+    "mongoose-bcrypt": "^1.10.1",
     "nuxt": "^3.2.2"
   },
   "dependencies": {

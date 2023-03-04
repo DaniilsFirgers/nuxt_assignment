@@ -8,4 +8,10 @@ export default defineNuxtConfig({
       extensions: [".vue"],
     },
   ],
+  nitro: {
+    plugins: ["~/server/index.ts"],
+  },
+  runtimeConfig: {
+    mongodbUri: process.env.MONGODB_URI,
+  },
 });

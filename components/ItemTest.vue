@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h1>{{ task.title }}</h1>
+    <h1>{{ task.todo }}</h1>
   </div>
 </template>
 
 <script setup lang="ts">
 defineProps<{
-  task: { id: number; title: string; isFav: boolean };
+  task: { id: string; todo: string; urgency: string };
 }>();
 </script>
 
