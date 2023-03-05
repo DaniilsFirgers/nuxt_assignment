@@ -3,25 +3,38 @@ import axios from "axios";
 
 export const useTaskStore = defineStore("taskStore", {
   state: () => ({
-    tasks: [],
+    tasks: [] as any[],
     isLoading: false,
+    isDisabled: false,
   }),
   getters: {
-    getItems(state) {
-      return this.tasks;
-    },
+    getUrgent: (state) =>
+      state.tasks.filter((task) => task.urgency === "urgent"),
   },
   actions: {
     async fetchTodos() {
       this.isLoading = true;
-      const res = await axios.get("api/todos");
-      this.tasks = res.data;
-      this.isLoading = false;
+      try {
+        const res = await axios.get("/api/todos");
+        this.tasks = res.data;
+      } catch (err) {
+        console.log("error", err);
+      } finally {
+        this.isLoading = false;
+      }
     },
     async addTodo(task: any) {
+      this.isDisabled = true;
       this.isLoading = true;
-      console.log(task);
-      await axios.post("api/todos", task);
+      try {
+        await axios.post("api/todos", task);
+        await this.fetchTodos();
+      } catch (err) {
+        console.log(err);
+      } finally {
+        this.isDisabled = false;
+        this.isLoading = false;
+      }
     },
   },
 });

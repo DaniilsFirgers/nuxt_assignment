@@ -5,10 +5,9 @@ export default defineEventHandler(async (event) => {
   try {
     console.log("Find users");
     const todosData = await todos.find().exec();
-    console.log(todosData);
     return todosData;
   } catch (err) {
-    console.dir(err);
+    console.dir("error", err);
     event.node.res.statusCode = 500;
     return {
       code: "ERROR",
