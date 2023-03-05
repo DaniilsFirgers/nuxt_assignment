@@ -15,8 +15,10 @@ export const useTaskStore = defineStore("taskStore", {
     async fetchTodos() {
       this.isLoading = true;
       try {
-        const res = await axios.get("/api/todos");
-        this.tasks = res.data;
+        const res1 = await useFetch("/api/todos");
+        console.log("res", res1.data.value);
+
+        this.tasks = res1.data.value;
       } catch (err) {
         console.log("error", err);
       } finally {
