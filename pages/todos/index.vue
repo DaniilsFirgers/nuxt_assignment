@@ -34,8 +34,8 @@
       </form>
     </div>
   </div>
-  <div class="task-list">
-    <div v-for="task in tasks">
+  <div class="flex flex-col items-center">
+    <div v-for="task in tasks" class="w-2/6">
       <ItemTest :task="task"></ItemTest>
     </div>
   </div>

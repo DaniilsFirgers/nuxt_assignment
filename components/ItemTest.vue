@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <h1>{{ task.todo }}</h1>
+  <div class="border radius-lg norder-green-700">
+    <div class="m-3">
+      <h2>Urgency: {{ task.urgency }}</h2>
+      <h1>{{ task.todo }}</h1>
+    </div>
   </div>
 </template>
 
