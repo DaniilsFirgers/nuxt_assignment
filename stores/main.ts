@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 
-
 type TaskStore = {
   tasks: any[] | null | { [key: string]: string };
   isLoading: boolean;
@@ -46,7 +45,7 @@ export const useTaskStore = defineStore<string, TaskStore, Getters, Actions>(
           await useFetch("api/todos", {
             headers: { "Content-type": "application/json" },
             method: "POST",
-            body: task,
+            body: JSON.stringify(task),
           });
 
           await this.fetchTodos();

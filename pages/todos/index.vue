@@ -35,7 +35,7 @@
     </div>
   </div>
   <div class="flex flex-col items-center">
-    <div v-for="task in tasks" class="w-2/6">
+    <div v-for="task in tasks" class="w-2/5">
       <ItemTest :task="task"></ItemTest>
     </div>
   </div>
@@ -49,9 +49,9 @@ let newTask = ref<{ urgency: string; todo: string }>({
   urgency: "Urgent",
   todo: "",
 });
-definePageMeta({
-  layout: "todos",
-});
+// definePageMeta({
+//   layout: "todos",
+// });
 const taskStore = useTaskStore();
 let { tasks, isDisabled, isLoading } = storeToRefs(taskStore);
 

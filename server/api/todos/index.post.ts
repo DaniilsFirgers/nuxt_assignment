@@ -9,7 +9,6 @@ export default defineEventHandler(async (event) => {
   console.log("POST /api/users");
   const { urgency, todo } = await readBody<Todo>(event);
   try {
-    console.log("Create user");
     const newUserData = await todos.create({
       urgency,
       todo,
