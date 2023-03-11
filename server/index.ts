@@ -3,11 +3,10 @@ import mongoose from "mongoose";
 
 export default async (_nitroApp: Nitro) => {
   const config = useRuntimeConfig();
-
   try {
     await mongoose.connect(config.mongodbUri);
     console.log("Connected to MongoDb");
   } catch (err) {
-    console.log(err);
+    console.log('Error', err);
   }
 };

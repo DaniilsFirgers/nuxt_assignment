@@ -11,6 +11,7 @@ type Getters = {
 type Actions = {
   fetchTodos: () => Promise<void>;
   addTodo: (task: any) => Promise<void>;
+  deleteTodo:(id: string) => Promise<void>
 };
 export const useTaskStore = defineStore<string, TaskStore, Getters, Actions>(
   "taskStore",
@@ -56,6 +57,21 @@ export const useTaskStore = defineStore<string, TaskStore, Getters, Actions>(
           this.isLoading = false;
         }
       },
+      async deleteTodo(id: string){
+        this.isLoading = true;
+        console.log('from pinia', id)
+        try {
+          await useFetch(`api/todos/${id}`, {
+            method: "DELETE",
+          });
+
+          await this.fetchTodos();
+        } catch (err) {
+          console.log(err);
+        } finally {
+          this.isLoading = false;
+        }
+      }
     },
   }
 );

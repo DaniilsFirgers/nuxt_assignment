@@ -36,7 +36,7 @@
   </div>
   <div class="flex flex-col items-center">
     <div v-for="task in tasks" class="w-2/5">
-      <ItemTest :task="task"></ItemTest>
+      <ItemTest :task="task" @onDelete="(id)=>onDelete(id)"></ItemTest>
     </div>
   </div>
 </template>
@@ -62,6 +62,10 @@ function handleSubmit(e: Event) {
   taskStore.addTodo(newTask.value);
   newTask.value.urgency = "";
   newTask.value.todo = "";
+}
+
+function onDelete(id: string){
+  taskStore.deleteTodo(id)
 }
 
 taskStore.fetchTodos();
