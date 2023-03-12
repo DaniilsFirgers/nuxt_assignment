@@ -1,29 +1,15 @@
 <template>
   <div>
-    <h2>About</h2>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-      aperiam deleniti nulla, minus inventore labore mollitia ab rerum. Maxime
-      maiores fuga libero sunt debitis laboriosam minima, tempora consequatur
-      sequi veniam!
+    <h2 class="mb-20 text-3xl">About The
+    Assignment App</h2>
+    <p class="mx-30 my-0">
+     The App was created as a part of the Masters frontend course at the University of Latvia. 
+     The App is created in Nuxt 3 with Pinia for state management and Tailwind for styling.
+     The has two pages -  About And Todos. In Todos page a  user can add and delete a todo. The reativity of the components is managed by Pinia.
     </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-      aperiam deleniti nulla, minus inventore labore mollitia ab rerum. Maxime
-      maiores fuga libero sunt debitis laboriosam minima, tempora consequatur
-      sequi veniam!
-    </p>
+
   </div>
 </template>
 
 <script setup lang="ts"></script>
 
-<style scoped>
-h2 {
-  margin-bottom: 20px;
-  font-size: 36px;
-}
-p {
-  margin: 30px 0px;
-}
-</style>

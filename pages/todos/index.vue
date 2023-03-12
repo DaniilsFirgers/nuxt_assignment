@@ -49,9 +49,11 @@ let newTask = ref<{ urgency: string; todo: string }>({
   urgency: "Urgent",
   todo: "",
 });
-// definePageMeta({
-//   layout: "todos",
-// });
+
+definePageMeta({
+  layout: "default",
+});
+
 const taskStore = useTaskStore();
 let { tasks, isDisabled, isLoading } = storeToRefs(taskStore);
 
