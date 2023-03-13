@@ -9,11 +9,11 @@
     </div>
     <div class="flex flex-row items-center">
       
-    <div class="my-3 w-6/12 flex flex-col ml-3">
+    <div class="my-3 w-10/12 flex flex-col ml-3 border rounded-md border-gray-300 bg-gray-300/40">
       
-      <h1 class="">{{ task.todo }}</h1>
+      <h1 class="ml-1">{{ task.todo }}</h1>
     </div>
-    <div class="my-3 w-6/12 flex mr-3 justify-end">
+    <div class="my-3 w-2/12 flex mr-3 justify-end">
 
       <button class="btn bg-red-600 hover:bg-red-700" @click="()=>onDeleteHandle(task._id)">Delete
       </button>

@@ -17,12 +17,12 @@
           <option value="Not urgent">Not urgent</option>
         </select>
         <label for="todo" class="text-green-800 my-1">Todo</label>
-        <input
+        <textarea
           type="text"
           id="ur"
           name="todo"
           v-model="newTask.todo"
-          class="border rounded-md pl-2"
+          class="border rounded-md pl-2 bg-gray"
         />
         <button
           :disabled="isDisabled"
@@ -34,7 +34,7 @@
       </form>
     </div>
   </div>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center h-56 overflow-y-auto">
     <div v-for="task in tasks" class="w-2/5">
       <ItemTest :task="task" @onDelete="(id)=>onDelete(id)"></ItemTest>
     </div>

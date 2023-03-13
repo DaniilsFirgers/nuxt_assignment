@@ -1,42 +1,24 @@
-# Nuxt 3 Minimal Starter
+# NUXT 3 Sample App fro Frentend Course
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+---
+A simople TODO app implemnting the following texchnologies:
+- NUXT 3
+- Typescript
+- Pinia
+- MongoDB and Mongosh
 
 ## Setup
 
-Make sure to install the dependencies:
+To install the dependencies:
 
 ```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
 pnpm install
 ```
 
 ## Development Server
 
-Start the development server on http://localhost:3000
+Start the development server on http://localhost:3001
 
 ```bash
-npm run dev
+pnpm run dev
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

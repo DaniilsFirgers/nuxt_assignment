@@ -15,4 +15,8 @@ export default defineNuxtConfig({
     mongodbUri: process.env.MONGODB_URI,
   },
   ssr: false,
+  devServer:{
+    port: 3001,
+    host: 'localhost'
+  }
 });
