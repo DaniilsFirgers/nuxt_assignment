@@ -1,4 +1,4 @@
-# NUXT 3 Sample App fro Frentend Course
+# NUXT 3 Sample App for Frentend Course
 
 ---
 A simople TODO app implemnting the following texchnologies:
