@@ -18,5 +18,10 @@ export default defineNuxtConfig({
   devServer:{
     port: 3001,
     host: 'localhost'
-  }
+  },
+  build: {
+    optimizeDeps: {
+      include: ["vue", "vue-router"]
+    }
+  } as { [key: string]: any }
 });
