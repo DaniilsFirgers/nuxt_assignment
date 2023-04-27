@@ -11,7 +11,7 @@ type Getters = {
 type Actions = {
   fetchTodos: () => Promise<void>;
   addTodo: (task: any) => Promise<void>;
-  deleteTodo:(id: string) => Promise<void>
+  deleteTodo: (id: string) => Promise<void>;
 };
 export const useTaskStore = defineStore<string, TaskStore, Getters, Actions>(
   "taskStore",
@@ -22,10 +22,17 @@ export const useTaskStore = defineStore<string, TaskStore, Getters, Actions>(
       isDisabled: false,
     }),
     getters: {
-      getUrgent: (state) =>
-        (state.tasks as { todo: string; urgency: string }[]).filter(
-          (task) => task.urgency === "urgent"
-        ),
+      getUrgent(state) {
+        return (state.tasks as { todo: string; urgency: string }[]).filter(
+          (task) => task.urgency.toLocaleLowerCase() === "urgent"
+        );
+      },
+
+      getVeryUrgent(state) {
+        return (state.tasks as { todo: string; urgency: string }[]).filter(
+          (task) => task.urgency.toLocaleLowerCase() === "very urgent"
+        );
+      },
     },
     actions: {
       async fetchTodos() {
@@ -57,9 +64,9 @@ export const useTaskStore = defineStore<string, TaskStore, Getters, Actions>(
           this.isLoading = false;
         }
       },
-      async deleteTodo(id: string){
+      async deleteTodo(id: string) {
         this.isLoading = true;
-        console.log('from pinia', id)
+        console.log("from pinia", id);
         try {
           await useFetch(`api/todos/${id}`, {
             method: "DELETE",
@@ -71,7 +78,7 @@ export const useTaskStore = defineStore<string, TaskStore, Getters, Actions>(
         } finally {
           this.isLoading = false;
         }
-      }
+      },
     },
   }
 );
