@@ -7,6 +7,8 @@ type TaskStore = {
 };
 type Getters = {
   getUrgent: (state: any) => { todo: string; urgency: string }[];
+  getVeryUrgent: (state: any) => { todo: string; urgency: string }[];
+  getAll: (state: any) => { todo: string; urgency: string }[];
 };
 type Actions = {
   fetchTodos: () => Promise<void>;
@@ -32,6 +34,9 @@ export const useTaskStore = defineStore<string, TaskStore, Getters, Actions>(
         return (state.tasks as { todo: string; urgency: string }[]).filter(
           (task) => task.urgency.toLocaleLowerCase() === "very urgent"
         );
+      },
+      getAll(state) {
+        return state.tasks as { todo: string; urgency: string }[];
       },
     },
     actions: {

@@ -52,11 +52,14 @@
   </div>
   <div class="flex flex-col items-center h-80 overflow-y-auto">
     <div
-      v-for="task in tasks"
+      v-for="task in getAll"
       class="w-2/5"
       v-if="selectedTaskUrgency === 'all'"
     >
-      <ItemTest :task="task" @onDelete="(id) => onDelete(id)"></ItemTest>
+      <ItemTest
+        :task="task"
+        @onDelete="(id: string) => onDelete(id)"
+      ></ItemTest>
     </div>
 
     <div
@@ -64,14 +67,20 @@
       class="w-2/5"
       v-if="selectedTaskUrgency === 'urgent'"
     >
-      <ItemTest :task="task" @onDelete="(id) => onDelete(id)"></ItemTest>
+      <ItemTest
+        :task="task"
+        @onDelete="(id: string) => onDelete(id)"
+      ></ItemTest>
     </div>
     <div
       v-for="task in getVeryUrgent"
       class="w-2/5"
       v-if="selectedTaskUrgency === 'very urgent'"
     >
-      <ItemTest :task="task" @onDelete="(id) => onDelete(id)"></ItemTest>
+      <ItemTest
+        :task="task"
+        @onDelete="(id: string) => onDelete(id)"
+      ></ItemTest>
     </div>
   </div>
 </template>
@@ -93,11 +102,11 @@ definePageMeta({
 });
 
 const taskStore = useTaskStore();
-let { tasks, isDisabled, isLoading, getUrgent, getVeryUrgent } =
+let { tasks, isDisabled, isLoading, getUrgent, getVeryUrgent, getAll } =
   storeToRefs(taskStore);
 
 function HandleSelectUrgency(e: Event) {
-  const urgency = e.target.value;
+  const urgency = (e.target as HTMLInputElement).value;
   if (urgency === "all") {
     tasks;
   } else if (urgency === "urgent") {
